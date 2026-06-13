@@ -281,6 +281,68 @@ document.querySelectorAll('.ba-slider').forEach(function(slider) {
 
 
 // ============================================================
+// Lightbox photo gallery
+// ============================================================
+(function() {
+  var items = Array.from(document.querySelectorAll('[data-lightbox]'));
+  if (!items.length) return;
+
+  // Build lightbox DOM
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('aria-hidden', 'true');
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-label', 'Photo viewer');
+  lb.innerHTML =
+    '<button class="lightbox__close" aria-label="Close">&times;</button>' +
+    '<button class="lightbox__prev" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>' +
+    '<div class="lightbox__img-wrap"><img class="lightbox__img" src="" alt=""></div>' +
+    '<button class="lightbox__next" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>' +
+    '<div class="lightbox__counter"></div>';
+  document.body.appendChild(lb);
+
+  var lbImg = lb.querySelector('.lightbox__img');
+  var lbCounter = lb.querySelector('.lightbox__counter');
+  var current = 0;
+
+  function open(index) {
+    current = (index + items.length) % items.length;
+    lbImg.classList.remove('loaded');
+    lbImg.src = items[current].dataset.src;
+    lbImg.alt = items[current].querySelector('img').alt;
+    lbImg.onload = function() { lbImg.classList.add('loaded'); };
+    lbCounter.textContent = (current + 1) + ' / ' + items.length;
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  items.forEach(function(el, i) {
+    el.addEventListener('click', function(e) { e.preventDefault(); open(i); });
+  });
+
+  lb.querySelector('.lightbox__close').addEventListener('click', close);
+  lb.querySelector('.lightbox__prev').addEventListener('click', function() { open(current - 1); });
+  lb.querySelector('.lightbox__next').addEventListener('click', function() { open(current + 1); });
+  lb.addEventListener('click', function(e) { if (e.target === lb) close(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') open(current + 1);
+    if (e.key === 'ArrowLeft') open(current - 1);
+  });
+})();
+
+
+// ============================================================
 // FAQ Accordion — event delegation (works on all pages)
 // ============================================================
 document.addEventListener('click', function(e) {
