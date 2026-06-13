@@ -354,8 +354,8 @@ section {
   padding: calc(var(--nav-height) + 80px) 0 100px;
   overflow: hidden;
   background-image: url('https://raw.githubusercontent.com/zvalentine2001/DuBroc-Demo-Website/main/DD%20PFP(compressed).jpg');
-  background-size: cover;
-  background-position: center top;
+  background-size: 120%;
+  background-position: center 30%;
   background-repeat: no-repeat;
 }
 
