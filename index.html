@@ -125,10 +125,21 @@
       </a>
 
       <ul class="nav__links" role="list">
-        <li><a href="#services" class="nav__link">Services</a></li>
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li class="nav__item--dropdown">
+          <a href="#services" class="nav__link nav__link--dropdown">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="nav__dropdown">
+            <li><a href="/demolition.html">Demolition</a></li>
+            <li><a href="/hauling.html">Hauling &amp; Junk Removal</a></li>
+            <li><a href="/construction.html">Construction</a></li>
+          </ul>
+        </li>
+        <li><a href="/gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="/service-areas.html" class="nav__link">Service Areas</a></li>
+        <li><a href="/about.html" class="nav__link">About</a></li>
+        <li><a href="/faq.html" class="nav__link">FAQ</a></li>
       </ul>
 
       <div class="nav__cta">
@@ -136,7 +147,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
           (405) 363-2820
         </a>
-        <a href="#contact" class="btn btn-accent">Get Free Quote</a>
+        <a href="/get-a-quote.html" class="btn btn-accent">Get Free Quote</a>
       </div>
 
       <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -147,12 +158,16 @@
     </div>
 
     <div class="nav__mobile" id="navMobile" aria-hidden="true">
-      <a href="#services" class="nav__mobile-link">Services</a>
-      <a href="#about" class="nav__mobile-link">About</a>
-      <a href="#projects" class="nav__mobile-link">Projects</a>
-      <a href="#contact" class="nav__mobile-link">Contact</a>
+      <a href="/demolition.html" class="nav__mobile-link">Demolition</a>
+      <a href="/hauling.html" class="nav__mobile-link">Hauling &amp; Junk Removal</a>
+      <a href="/construction.html" class="nav__mobile-link">Construction</a>
+      <a href="/gallery.html" class="nav__mobile-link">Gallery</a>
+      <a href="/service-areas.html" class="nav__mobile-link">Service Areas</a>
+      <a href="/about.html" class="nav__mobile-link">About</a>
+      <a href="/faq.html" class="nav__mobile-link">FAQ</a>
+      <a href="/reviews.html" class="nav__mobile-link">Reviews</a>
       <a href="tel:+14053632820" class="nav__mobile-link nav__mobile-phone">Call (405) 363-2820</a>
-      <a href="#contact" class="btn btn-accent">Get Free Quote</a>
+      <a href="/get-a-quote.html" class="btn btn-accent">Get Free Quote</a>
     </div>
   </nav>
 
@@ -167,7 +182,7 @@
         <div class="hero__content">
           <div class="hero__eyebrow fade-up">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Serving Stillwater &amp; Payne County, OK
+            Serving Stillwater &amp; Surrounding Areas
           </div>
 
           <!-- H1 — exact text from original preserved for SEO -->
@@ -606,30 +621,33 @@
         </div>
 
         <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/demolition.html">Demolition</a></li>
+            <li><a href="/hauling.html">Hauling &amp; Junk Removal</a></li>
+            <li><a href="/construction.html">Construction</a></li>
+            <li><a href="/gallery.html">Project Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/reviews.html">Reviews</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/service-areas.html">Service Areas</a></li>
+            <li><a href="/get-a-quote.html">Get a Quote</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
           <h4>Contact</h4>
           <ul>
             <li><a href="tel:+14053632820">(405) 363-2820</a></li>
             <li><a href="mailto:dax@dubrocdemo.com">dax@dubrocdemo.com</a></li>
             <li>6324 West 3rd St<br>Stillwater, OK 74074</li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Hours</h4>
-          <ul>
-            <li>Monday &ndash; Saturday</li>
-            <li>8:00 AM &ndash; 7:00 PM</li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4>Service Areas</h4>
-          <ul>
-            <li>Stillwater, OK</li>
-            <li>Payne County, OK</li>
-            <li>Perkins, OK</li>
-            <li>Cushing, OK</li>
-            <li>Guthrie, OK</li>
+            <li>Mon&ndash;Sat 8AM&ndash;7PM</li>
           </ul>
         </div>
 
