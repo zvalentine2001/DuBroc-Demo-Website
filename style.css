@@ -1315,11 +1315,8 @@ a.contact__detail:hover { border-color: rgba(30, 107, 69, 0.3); }
 }
 .faq-answer {
   overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease;
-}
-.faq-item.open .faq-answer {
-  max-height: 600px;
+  height: 0;
+  transition: height 0.28s ease;
 }
 .faq-answer p {
   padding-bottom: 22px;

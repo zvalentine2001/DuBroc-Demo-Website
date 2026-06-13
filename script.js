@@ -165,13 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
-// FAQ Accordion (inner pages)
+// FAQ Accordion — event delegation (works on all pages)
 // ============================================================
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.faq-question');
+  if (!btn) return;
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('open');
+
+  // Close all open items
+  document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+    openItem.classList.remove('open');
+    openItem.querySelector('.faq-answer').style.height = '0';
   });
+
+  // Open clicked item if it was closed
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.height = answer.scrollHeight + 'px';
+  }
 });
